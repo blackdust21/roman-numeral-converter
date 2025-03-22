@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./adobetest
+      dockerfile: Dockerfile.backend   
+    ports:
+      - "8080:8080"
+    depends_on:
+      - zipkin
+    environment:
+      - JAVA_OPTS=
+      - OTEL_EXPORTER_ZIPKIN_ENDPOINT=http://zipkin:9411/api/v2/spans
+      - OTEL_SERVICE_NAME=roman-numeral-converter
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.frontend  
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
