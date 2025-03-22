@@ -63,8 +63,7 @@ docker-compose up --build
 5. Prometheus is available at [http://localhost:9090](http://localhost:9090).
 6. Zipkin UI is accessible at [http://localhost:9411](http://localhost:9411).
 
-## Final Thoughts
-This project demos a practical implementation of a containerized full-stack app with modern observability tools. The choices made were guided by simplicity, industry adoption, and extensibility. Let us kno if you have any feedback or ideas for improvements.
+This project shows how I built a full-stack app Java and React using Docker along with proper logging, metrics, and tracing. I chose tools that are simple, well-supported, and easy to extend in the future.
 
 
 Frontend: http://localhost:3000
