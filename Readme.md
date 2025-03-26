@@ -55,13 +55,13 @@ I containerized everything using Docker and connected the services with Docker C
 - Easy for others to try out the project
 
 To launch everything:
-```bash
+``` clone repo and build backend jar file uwing maven command and bash
 docker-compose up --build
 ```
 
 ## How to Run
 
-1. Clone this repo
+1. Clone this repo and build the backend jar file first using the maven command.
 2. Run `docker-compose up --build`
 3. Go to [http://localhost:3000](http://localhost:3000) for the UI
 4. Call the API at [http://localhost:8080/romannumeral?query=42](http://localhost:8080/romannumeral?query=42)
